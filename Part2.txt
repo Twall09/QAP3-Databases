@@ -1,0 +1,44 @@
+QUERIES FOR PART 2:
+
+  This project was a little tricky for me. I was unsure if I was misunderstanding something or if its correct. 
+  I read over the steps of the assignment like 10 times and it seems I have everything required.
+  
+
+// Insert the sample book data:
+
+db.books.insertMany([
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    genre: "Fantasy",
+    publishedYear: 1937,
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    genre: "Fiction",
+    publishedYear: 1960,
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    genre: "Dystopian",
+    publishedYear: 1949,
+  },
+]);
+
+// Retrive the titles of the books
+
+    db.books.find({}, { title: 1, _id: 0 });
+
+// Find all books written by Tolkein
+
+    db.books.find({ author: "J.R.R. Tolkien" });
+
+// Update genre of "1984" to Science Fiction
+
+    db.books.updateOne({ title: "1984" }, { $set: { genre: "Science Fiction" } });
+
+// Delete The Hobbitt
+
+    db.books.deleteOne({ title: "The Hobbit" });
